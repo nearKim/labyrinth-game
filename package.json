@@ -2,6 +2,7 @@
   "name": "labyrinth-game",
   "private": true,
   "version": "0.0.0",
+  "author": "In Keun Kim <ik2619@columbia.edu>",
   "type": "module",
   "scripts": {
     "dev": "vite",
