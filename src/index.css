@@ -1,17 +1,62 @@
 @import "tailwindcss";
 
 @theme {
+  /* Light mode colors (default) */
   --color-cream: #FDFBF7;
   --color-warm-brown: #8B7355;
   --color-void: #0a0a0a;
+  --color-amber-900: #78350f;
+  --color-amber-800: #92400e;
+  --color-amber-700: #b45309;
+  --color-amber-100: #fef3c7;
+  --color-amber-50: #fffbeb;
+  --color-gray-400: #9ca3af;
+
+  /* Font family */
   --font-serif: 'Crimson Text', Georgia, serif;
+
+  /* Font sizes */
+  --font-size-small: 14px;
+  --font-size-medium: 16px;
+  --font-size-large: 20px;
+
+  /* Animations */
   --animate-shake: shake 0.5s ease-in-out;
+  --animate-slide-in: slide-in 0.2s ease-out;
+  --animate-slide-out: slide-out 0.2s ease-in;
 }
 
 @keyframes shake {
   0%, 100% { transform: translateX(0); }
   10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
   20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+@keyframes slide-in {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-out {
+  from { transform: translateX(0); opacity: 1; }
+  to { transform: translateX(100%); opacity: 0; }
+}
+
+html {
+  /* Base font size - scales all rem units */
+  font-size: 16px;
+}
+
+html[data-font-size="small"] {
+  font-size: 14px;
+}
+
+html[data-font-size="medium"] {
+  font-size: 16px;
+}
+
+html[data-font-size="large"] {
+  font-size: 20px;
 }
 
 body {
@@ -21,4 +66,35 @@ body {
 
 #root {
   min-height: 100vh;
+}
+
+/* Dark mode overrides - warm dark palette */
+.dark {
+  --color-cream: #1a1612;
+  --color-warm-brown: #d4b896;
+  --color-amber-900: #e8d5c4;
+  --color-amber-800: #d4c4b0;
+  --color-amber-700: #c9b89a;
+  --color-amber-100: #2a2420;
+  --color-amber-50: #231e1a;
+  --color-gray-400: #8b8075;
+}
+
+/* Font size utility classes */
+.font-small { font-size: var(--font-size-small); }
+.font-medium { font-size: var(--font-size-medium); }
+.font-large { font-size: var(--font-size-large); }
+
+/* Hidden text for light/dark mode compatibility */
+.hidden-text {
+  color: var(--color-cream);
+}
+
+/* Settings panel transition classes */
+.settings-panel-enter {
+  animation: slide-in 0.2s ease-out forwards;
+}
+
+.settings-panel-exit {
+  animation: slide-out 0.2s ease-in forwards;
 }

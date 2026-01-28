@@ -31,4 +31,31 @@ export const UI_TEXT = {
   URL_HACK_HINT: 'There\'s no input here. Perhaps the answer lies elsewhere...',
   MAGIC_LENS_TITLE: 'Magic Lens',
   MAGIC_LENS_SUBTITLE: 'Reveal hidden secrets',
+  CLICK_HINT: 'Some words hold more than meaning...',
+  HOTSPOT_HINT: 'Some things respond only to touch.',
+} as const;
+
+export const SETTINGS_TEXT = {
+  TITLE: 'Settings',
+  CLOSE: 'Close',
+
+  // Display section
+  DISPLAY_SECTION: 'Display',
+  FONT_SIZE_LABEL: 'Font Size',
+  FONT_SIZE_SMALL: 'Small',
+  FONT_SIZE_MEDIUM: 'Medium',
+  FONT_SIZE_LARGE: 'Large',
+  DARK_MODE_LABEL: 'Dark Mode',
+
+  // Audio section
+  AUDIO_SECTION: 'Audio',
+  VOLUME_LABEL: 'Volume',
+
+  // Game section
+  GAME_SECTION: 'Game',
+  RESET_PROGRESS: 'Reset Progress',
+  RESET_CONFIRM_TITLE: 'Reset Progress?',
+  RESET_CONFIRM_MESSAGE: 'This will clear all progress and return you to the beginning. This cannot be undone.',
+  RESET_CONFIRM_YES: 'Yes, Reset',
+  RESET_CONFIRM_NO: 'Cancel',
 } as const;
