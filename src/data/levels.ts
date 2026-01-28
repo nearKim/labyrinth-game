@@ -54,7 +54,7 @@ Here is your first key. Change the address to:
 
 <p class="text-sm text-gray-400 italic">Hint: Edit the URL in your browser's address bar.</p>
       `,
-      image: '/assets/level00_title.jpg',
+      image: 'assets/level00_title.jpg',
     },
     meta: {
       consoleClue: 'Welcome, curious one. The first chapter awaits at /#/morning-porch',
@@ -99,7 +99,7 @@ the
 Hint: Look beneath what feels too familiar to matter.
 </p>
       `,
-      image: '/assets/level01_porch.jpg',
+      image: 'assets/level01_porch.jpg',
     },
     meta: {
       consoleClue: 'The doormat holds secrets. Click to look closer.',
@@ -131,7 +131,7 @@ A key lies there. Stamped into it:
 
 <p class="mt-3 text-sm text-gray-400 italic">Hint: Keys are literal here.</p>
       `,
-      image: '/assets/level01_porch.jpg',
+      image: 'assets/level01_porch.jpg',
     },
     meta: {
       consoleClue: 'The answer is simple. What do you do with a door?',
@@ -179,7 +179,7 @@ NEXT: /handless-clock
 Hint: Sometimes the page whispers the same color as the paper.
 </p>
       `,
-      image: '/assets/level02_hallway.jpg',
+      image: 'assets/level02_hallway.jpg',
     },
     meta: {
       consoleClue: 'The walls have hidden messages. Select all text with Ctrl+A.',
@@ -219,7 +219,7 @@ but in the bones of the page itself.
 Hint: Press F12. Inspect what you cannot see.
 </p>
       `,
-      image: '/assets/level03_clock.jpg',
+      image: 'assets/level03_clock.jpg',
     },
     meta: {
       consoleClue: 'The answer hides in an HTML comment. Open DevTools (F12) and inspect the page source.',
@@ -254,7 +254,7 @@ It offers you an image instead.
 Hint: Sometimes the answer is the name you give a thing. Right-click the image.
 </p>
       `,
-      image: '/assets/solution_is_silver-glass.jpg',
+      image: 'assets/solution_is_silver-glass.jpg',
     },
     meta: {
       consoleClue: 'The bird whispers through the image filename. Right-click → "Open image in new tab" or inspect the source.',
@@ -288,7 +288,7 @@ the way secrets prefer to be introduced.
 Hint: The word is shown in the "mirror".
 </p>
       `,
-      image: '/assets/level05_mirror.png',
+      image: 'assets/level05_mirror.png',
     },
     meta: {
       consoleClue: 'The mirror shows HCTAL backwards. Read it right to left: LATCH. Go to /latch',
@@ -322,7 +322,7 @@ And the missing thing is the entire point.
 Hint: Name what disappeared.
 </p>
       `,
-      image: '/assets/level06_postcards.png',
+      image: 'assets/level06_postcards.png',
     },
     meta: {
       consoleClue: 'Compare the postcards carefully. What is missing? A STAR.',
@@ -359,7 +359,7 @@ as if it remembers your hand.
 Hint: Click what feels warmer.
 </p>
       `,
-      image: '/assets/level07_door.jpg',
+      image: 'assets/level07_door.jpg',
     },
     meta: {
       consoleClue: 'The warm carving awaits your touch. Look near the center.',
@@ -410,7 +410,7 @@ The labyrinth asks: <em>What gentle number follows?</em>
 Hint: Add the last two numbers together.
 </p>
       `,
-      image: '/assets/level08_margin.jpg',
+      image: 'assets/level08_margin.jpg',
     },
     meta: {
       consoleClue: 'The Fibonacci sequence: 1, 1, 2, 3, 5, 8... Next is 5+8=13.',
@@ -457,7 +457,7 @@ Just as a single key.
 Hint: Order matters. Use the order you encountered them.
 </p>
       `,
-      image: '/assets/level09_letter.jpg',
+      image: 'assets/level09_letter.jpg',
     },
     meta: {
       consoleClue: 'doormat + shadow + mirror = doormatshadowmirror',
@@ -493,7 +493,7 @@ This one is meant to be read like a secret held upright.
 Hint: Read the first letters.
 </p>
       `,
-      image: '/assets/level10_spine.jpg',
+      image: 'assets/level10_spine.jpg',
     },
     meta: {
       consoleClue: 'C-L-I-C-K. What you must do.',
@@ -536,7 +536,7 @@ those soft, breathing things that give words their voice.
 Hint: Vowels are A, E, I, O, U. What's left without them?
 </p>
       `,
-      image: '/assets/level11_sentence.jpg',
+      image: 'assets/level11_sentence.jpg',
     },
     meta: {
       consoleClue: 'BLUEBIRDOPENSALATCH minus vowels = BLBRDPNSLTCH',
@@ -585,7 +585,7 @@ So X is first 3 digits, Y is last 3 digits.
 Hint: If you enter the correct coordinates, the map will 'accept' them.
 </p>
       `,
-      image: '/assets/level12_map.jpg',
+      image: 'assets/level12_map.jpg',
     },
     meta: {
       consoleClue: '42 in binary = 101010. X=101=5, Y=010=2. Answer: 5,2',
@@ -615,7 +615,7 @@ The labyrinth was never hiding from you.<br>
 It was hiding <em>for</em> you.
 </p>
       `,
-      image: '/assets/level00_title.jpg',
+      image: 'assets/level00_title.jpg',
     },
     meta: {
       consoleClue: 'You have completed the labyrinth. Thank you for playing.',

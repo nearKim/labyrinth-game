@@ -43,7 +43,7 @@ function createHowlerPlayer(src: string, initialVolume: number): AudioPlayer {
 export function useAudioEngine(
   sanity: number,
   volume: number = AUDIO.DEFAULT_VOLUME,
-  audioSrc: string = '/bgm.mp3'
+  audioSrc: string = 'bgm.mp3'
 ): void {
   const playerRef = useRef<AudioPlayer | null>(null);
 
