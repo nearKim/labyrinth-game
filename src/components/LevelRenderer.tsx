@@ -3,7 +3,8 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { getLevelBySlug } from '../data/levels';
 import { useGameStore } from '../store/gameStore';
 import { useConsoleWhisperer } from '../hooks';
-import { UI_TEXT } from '../constants';
+import { UI_TEXT, DEFAULT_TITLE } from '../constants';
+import { isClickPuzzle } from '../types';
 import { ActionButton } from './ui';
 import { PuzzleFactory } from './puzzles';
 
@@ -13,14 +14,28 @@ import { PuzzleFactory } from './puzzles';
  * Single Responsibility: orchestrates level display, not puzzle logic.
  */
 export function LevelRenderer(): ReactElement {
-  const { slug = 'start' } = useParams<{ slug: string }>();
+  const { slug = '', '*': nestedPath } = useParams<{ slug: string; '*': string }>();
   const navigate = useNavigate();
   const { setCurrentLevel, setSanity } = useGameStore();
 
-  const level = getLevelBySlug(slug);
+  // Combine slug and nested path for full path support (e.g., chapter-6/LATCH)
+  const fullSlug = nestedPath ? `${slug}/${nestedPath}` : slug;
+  const level = getLevelBySlug(fullSlug);
 
   // Console whisperer effect
   useConsoleWhisperer(level?.meta.consoleClue);
+
+  // Title clue effect (for L03 - clue hidden in browser title)
+  useEffect(() => {
+    if (level?.meta.titleClue) {
+      document.title = level.meta.titleClue;
+    } else {
+      document.title = DEFAULT_TITLE;
+    }
+    return () => {
+      document.title = DEFAULT_TITLE;
+    };
+  }, [level?.meta.titleClue]);
 
   // Sync level state with store
   useEffect(() => {
@@ -37,8 +52,17 @@ export function LevelRenderer(): ReactElement {
   }, [level, navigate]);
 
   const handleReturnToStart = useCallback(() => {
-    navigate('/start');
+    navigate('/');
   }, [navigate]);
+
+  // Handle click events on story content for click puzzles (event delegation)
+  const handleStoryClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+    const clickTarget = target.closest('[data-click]')?.getAttribute('data-click');
+    if (clickTarget && level?.puzzle && isClickPuzzle(level.puzzle)) {
+      navigate(`/${level.puzzle.nextSlug}`);
+    }
+  }, [level, navigate]);
 
   // Not found state
   if (!level) {
@@ -65,8 +89,8 @@ export function LevelRenderer(): ReactElement {
         </h1>
       </header>
 
-      {/* Image display for non-inspector puzzles */}
-      {content.image && puzzle.type !== 'inspector' && (
+      {/* Image display for puzzles that don't handle their own image */}
+      {content.image && puzzle.type !== 'inspector' && puzzle.type !== 'hotspot' && (
         <div className="relative">
           <img
             src={content.image}
@@ -80,10 +104,12 @@ export function LevelRenderer(): ReactElement {
       <div
         className="prose prose-warm-brown max-w-none text-warm-brown leading-relaxed"
         dangerouslySetInnerHTML={{ __html: content.story }}
+        onClick={handleStoryClick}
       />
 
-      {/* Puzzle component via factory */}
+      {/* Puzzle component via factory - key forces remount on level change */}
       <PuzzleFactory
+        key={level.id}
         puzzle={puzzle}
         onSuccess={handleSuccess}
         imageSrc={content.image}

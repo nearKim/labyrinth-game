@@ -27,7 +27,7 @@ interface GameActions {
 type GameStore = GameState & GameActions;
 
 const initialState: GameState = {
-  currentLevel: 'start',
+  currentLevel: '',
   sanity: 1.0,
   inventory: [],
 };

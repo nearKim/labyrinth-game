@@ -1,9 +1,11 @@
 import type { ReactElement } from 'react';
 import type { Puzzle } from '../../types';
-import { isInputPuzzle, isInspectorPuzzle } from '../../types';
+import { isInputPuzzle, isInspectorPuzzle, isClickPuzzle, isHotspotPuzzle } from '../../types';
 import { InputPuzzle } from './InputPuzzle';
 import { UrlHackPuzzle } from './UrlHackPuzzle';
 import { InspectorPuzzle } from './InspectorPuzzle';
+import { ClickPuzzle } from './ClickPuzzle';
+import { HotspotPuzzle } from './HotspotPuzzle';
 
 export interface PuzzleFactoryProps {
   readonly puzzle: Puzzle;
@@ -37,6 +39,22 @@ export function PuzzleFactory({
     }
     return (
       <InspectorPuzzle
+        puzzle={puzzle}
+        onSuccess={onSuccess}
+        imageSrc={imageSrc}
+      />
+    );
+  }
+
+  // Click puzzle - clickable text in story HTML, LevelRenderer handles delegation
+  if (isClickPuzzle(puzzle)) {
+    return <ClickPuzzle puzzle={puzzle} onSuccess={onSuccess} />;
+  }
+
+  // Hotspot puzzle - clickable region on image
+  if (isHotspotPuzzle(puzzle)) {
+    return (
+      <HotspotPuzzle
         puzzle={puzzle}
         onSuccess={onSuccess}
         imageSrc={imageSrc}

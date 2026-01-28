@@ -15,6 +15,7 @@ export interface LevelContent {
  */
 export interface LevelMeta {
   readonly consoleClue?: string;
+  readonly titleClue?: string;
 }
 
 /**
@@ -24,6 +25,7 @@ export interface LevelMeta {
 export interface Level {
   readonly id: string;
   readonly slug: string;
+  readonly aliases?: readonly string[];
   readonly sanity: number;
   readonly content: LevelContent;
   readonly meta: LevelMeta;

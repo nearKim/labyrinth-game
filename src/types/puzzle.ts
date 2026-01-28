@@ -23,7 +23,22 @@ export interface InspectorPuzzle extends BasePuzzle {
   readonly hint?: string;
 }
 
-export type Puzzle = InputPuzzle | UrlHackPuzzle | InspectorPuzzle;
+export interface ClickPuzzle extends BasePuzzle {
+  readonly type: 'click';
+  readonly clickTarget: string;
+}
+
+export interface HotspotPuzzle extends BasePuzzle {
+  readonly type: 'hotspot';
+  readonly hotspot: {
+    readonly x: number;
+    readonly y: number;
+    readonly width: number;
+    readonly height: number;
+  };
+}
+
+export type Puzzle = InputPuzzle | UrlHackPuzzle | InspectorPuzzle | ClickPuzzle | HotspotPuzzle;
 
 export type PuzzleType = Puzzle['type'];
 
@@ -50,4 +65,12 @@ export const isUrlHackPuzzle = (puzzle: Puzzle): puzzle is UrlHackPuzzle => {
 
 export const isInspectorPuzzle = (puzzle: Puzzle): puzzle is InspectorPuzzle => {
   return puzzle.type === 'inspector';
+};
+
+export const isClickPuzzle = (puzzle: Puzzle): puzzle is ClickPuzzle => {
+  return puzzle.type === 'click';
+};
+
+export const isHotspotPuzzle = (puzzle: Puzzle): puzzle is HotspotPuzzle => {
+  return puzzle.type === 'hotspot';
 };
